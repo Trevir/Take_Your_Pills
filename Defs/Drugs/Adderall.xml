@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugPillBase">
+    <defName>Adderall</defName>
+    <label>adderall</label>
+    <description>Adderall is a powerful performance enhancing drug. It improves the worst learnable skill. Is relatively save when taken with caution.
+      \nHowever it comes with serious side effects on prolongued and/or overuse. Reported cases include eating disorder and overwhelming stress.</description>
+    <graphicData>
+      <texPath>Drugs/Adderall</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>1400</WorkToMake>
+      <MarketValue>120</MarketValue>
+      <Mass>0.01</Mass>
+    </statBases>
+    <techLevel>Ultra</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>AdderallHigh</hediffDef>
+          <severity>0.40</severity>
+          <doToGeneratedPawnIfAddicted>true</doToGeneratedPawnIfAddicted>
+        </li>
+        <li Class="Take_Your_Pills.TYPLearnLowestSkill">
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+			<researchPrerequisite>AdderallProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+    </recipeMaker>
+      <costList>
+        <Yayo>6</Yayo>
+        <WakeUp>3</WakeUp>
+      </costList>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <addictiveness>0</addictiveness>
+        <listOrder>1001</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>AdderallHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>high on adderall</label>
+    <defaultLabelColor>(1,1,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>2.0</maxSeverity>
+    <isBad>false</isBad>
+		<comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.0</severityPerDay>
+      </li>
+		</comps>
+    <hediffGivers>
+      <li Class="HediffGiver_RandomDrugEffect">
+        <hediff>SleepingDisorder</hediff>
+        <minSeverity>0.50</minSeverity>
+        <baseMtbDays>22</baseMtbDays>
+        <partsToAffect>
+          <li>Brain</li>
+        </partsToAffect>
+      </li>
+      <li Class="HediffGiver_RandomDrugEffect">
+        <hediff>EatingDisorder</hediff>
+        <minSeverity>0.50</minSeverity>
+        <baseMtbDays>180</baseMtbDays>
+        <partsToAffect>
+          <li>Brain</li>
+        </partsToAffect>
+      </li>
+      <li Class="HediffGiver_RandomDrugEffect">
+        <hediff>BurnOut</hediff>
+        <minSeverity>1.10</minSeverity>
+        <baseMtbDays>40</baseMtbDays>
+        <partsToAffect>
+          <li>Brain</li>
+        </partsToAffect>
+      </li>
+      <li Class="HediffGiver_RandomDrugEffect">
+        <hediff>ChronicStress</hediff>
+        <minSeverity>0.80</minSeverity>
+        <baseMtbDays>30</baseMtbDays>
+        <partsToAffect>
+          <li>Brain</li>
+        </partsToAffect>
+      </li>
+    </hediffGivers>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>tired</label>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.20</offset>
+            </li>
+          </capMods>
+          <hungerRateFactor>1.1</hungerRateFactor>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>exhausted</label>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.30</offset>
+            </li>
+          </capMods>
+          <hungerRateFactor>1.2</hungerRateFactor>
+      </li>
+      <li>
+        <minSeverity>1.0</minSeverity>
+        <label>beaten down</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.40</offset>
+          </li>
+        </capMods>
+        <hungerRateFactor>1.3</hungerRateFactor>
+      </li>
+      <li>
+        <minSeverity>1.5</minSeverity>
+        <label>paralized by overdose</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.90</offset>
+          </li>
+        </capMods>
+        <hungerRateFactor>1.4</hungerRateFactor>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>AdderallHigh</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>AdderallHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>adderall recovery</label>
+        <description>I worked much.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>adderall recovery</label>
+        <description>I worked so hard recently.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>adderall recovery</label>
+        <description>Is there anything else than learning?!</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+      <li>
+        <label>adderall recovery</label>
+        <description>There is too much to learn. I'll never get it.</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

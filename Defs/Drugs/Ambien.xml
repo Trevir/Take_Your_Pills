@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugPillBase">
+    <defName>Ambien</defName>
+    <label>ambien</label>
+    <description>Ambien is used to cure sleeping disorders and improve the users sleep. Typically, regular users will need less sleep.</description>
+    <graphicData>
+      <texPath>Drugs/Ambien</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>600</WorkToMake>
+      <MarketValue>50</MarketValue>
+      <Mass>0.01</Mass>
+    </statBases>
+    <techLevel>Ultra</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>AmbienHigh</hediffDef>
+          <severity>0.60</severity>
+          <doToGeneratedPawnIfAddicted>true</doToGeneratedPawnIfAddicted>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+			<researchPrerequisite>AmbienProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Penoxycyline>2</Penoxycyline>
+      <Ambrosia>1</Ambrosia>
+    </costList>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <addictiveness>0</addictiveness>
+        <listOrder>1001</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>AmbienHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>high on ambien</label>
+    <defaultLabelColor>(1,1,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>2.0</maxSeverity>
+    <isBad>false</isBad>
+		<comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.0</severityPerDay>
+      </li>
+		</comps>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>drowsy</label>
+        <restFallFactor>0.95</restFallFactor>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>relaxed</label>
+        <restFallFactor>0.9</restFallFactor>
+      </li>
+      <li>
+        <minSeverity>1.0</minSeverity>
+        <label>boosted</label>
+        <restFallFactor>0.85</restFallFactor>
+      </li>
+      <li>
+        <minSeverity>1.5</minSeverity>
+        <label>pumped</label>
+        <restFallFactor>0.8</restFallFactor>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>-savedatafolder=C:\Users\Torsten\AppData\LocalLow\Ludeon Studios\ModTesting -quicktest</StartArguments>
+    <StartProgram>C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\Take_Your_Pills\..\..\RimWorldWin64.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartArguments>-savedatafolder=C:\Users\Torsten\AppData\LocalLow\Ludeon Studios\ModTesting</StartArguments>
+    <StartProgram>C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\Take_Your_Pills\..\..\RimWorldWin64.exe</StartProgram>
+  </PropertyGroup>
+</Project>

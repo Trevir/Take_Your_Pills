@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>RitalinProduction</defName>
+    <label>ritalinproduction</label>
+    <description>Craft the performance enhancing drug to improve your colonists.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>PsychiteRefining</li>
+      <li>GoJuiceProduction</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>6</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>AdderallProduction</defName>
+    <label>adderallproduction</label>
+    <description>Craft the performance enhancing drug to improve your colonists.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>PsychiteRefining</li>
+      <li>WakeUpProduction</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>6.5</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>ProzacProduction</defName>
+    <label>prozacproduction</label>
+    <description>Craft the drug to calm down stressed and burned out colonists.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>PsychiteRefining</li>
+      <li>PenoxycylineProduction</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>7</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>AmbienProduction</defName>
+    <label>ambienproduction</label>
+    <description>Craft the drug to calm down stressed and burned out colonists.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>PsychiteRefining</li>
+      <li>PenoxycylineProduction</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>7.5</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

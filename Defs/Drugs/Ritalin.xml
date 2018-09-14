@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugPillBase">
+    <defName>Ritalin</defName>
+    <label>ritalin</label>
+    <description>Ritalin is a powerful performance enhancing drug. Boosts the learners cognitive abilities and improves the learning of new things. Is relatively save when taken with caution.
+      \nHowever it comes with serious side effects on prolongued and/or overuse. Reported cases include sleeping disorder and long lasting burnouts.</description>
+    <graphicData>
+      <texPath>Drugs/Ritalin</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>1200</WorkToMake>
+      <MarketValue>100</MarketValue>
+      <Mass>0.01</Mass>
+    </statBases>
+    <techLevel>Ultra</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>RitalinHigh</hediffDef>
+          <severity>0.60</severity>
+          <doToGeneratedPawnIfAddicted>true</doToGeneratedPawnIfAddicted>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+			<researchPrerequisite>RitalinProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <GoJuice>3</GoJuice>
+      <SmokeleafJoint>6</SmokeleafJoint>
+    </costList>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <addictiveness>0</addictiveness>
+        <listOrder>1001</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>RitalinHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>high on ritalin</label>
+    <defaultLabelColor>(1,1,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>3.0</maxSeverity>
+    <isBad>false</isBad>
+		<comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.0</severityPerDay>
+      </li>
+		</comps>
+    <hediffGivers>
+      <li Class="HediffGiver_RandomDrugEffect">
+        <hediff>EatingDisorder</hediff>
+        <minSeverity>0.50</minSeverity>
+        <baseMtbDays>20</baseMtbDays>
+        <partsToAffect>
+          <li>Brain</li>
+        </partsToAffect>
+      </li>
+      <li Class="HediffGiver_RandomDrugEffect">
+        <hediff>BurnOut</hediff>
+        <minSeverity>1.30</minSeverity>
+        <baseMtbDays>60</baseMtbDays>
+        <partsToAffect>
+          <li>Brain</li>
+        </partsToAffect>
+      </li>
+      <li Class="HediffGiver_RandomDrugEffect">
+        <hediff>ChronicStress</hediff>
+        <minSeverity>1.00</minSeverity>
+        <baseMtbDays>40</baseMtbDays>
+        <partsToAffect>
+          <li>Brain</li>
+        </partsToAffect>
+      </li>
+    </hediffGivers>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>dumb</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.20</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>highly awake</label>
+        <statOffsets>
+          <GlobalLearningFactor>0.3</GlobalLearningFactor>
+        </statOffsets>
+        <restFallFactor>1.1</restFallFactor>
+      </li>
+      <li>
+        <minSeverity>1.0</minSeverity>
+        <label>boosted</label>
+        <statOffsets>
+          <GlobalLearningFactor>0.6</GlobalLearningFactor>
+        </statOffsets>
+        <restFallFactor>1.2</restFallFactor>
+      </li>
+      <li>
+        <minSeverity>1.5</minSeverity>
+        <label>pumped</label>
+        <statOffsets>
+          <GlobalLearningFactor>0.9</GlobalLearningFactor>
+        </statOffsets>
+        <restFallFactor>1.3</restFallFactor>
+      </li>
+      <li>
+        <minSeverity>2.0</minSeverity>
+        <label>absolutely stuffed</label>
+        <statOffsets>
+          <GlobalLearningFactor>1.2</GlobalLearningFactor>
+        </statOffsets>
+        <restFallFactor>1.4</restFallFactor>
+      </li>
+      <li>
+        <minSeverity>2.5</minSeverity>
+        <label>paralyzed by overdose</label>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.90</offset>
+            </li>
+          </capMods>
+          <restFallFactor>1.5</restFallFactor>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>RitalinHigh</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>RitalinHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>ritalin recovery</label>
+        <description>Nothing does make sense anymore. I feel so dumb.</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+      <li>
+        <label>ritalin high</label>
+        <description>I feel so awake and can grasp anything!</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>ritalin high</label>
+        <description>I feel so awake and can grasp anything!</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>ritalin high</label>
+        <description>I feel so awake and can grasp anything!</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>ritalin high</label>
+        <description>I feel so awake and can grasp anything!</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>ritalin paralyzed</label>
+        <description>Gnnnaaagghhh. There is too much to learn.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef ParentName="DiseaseBase">
+    <defName>EatingDisorder</defName>
+    <label>eating disorder</label>
+    <initialSeverity>0.001</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1.0</maxSeverity>
+    <tendable>true</tendable>
+    <cureAllAtOnceIfCuredByItem>true</cureAllAtOnceIfCuredByItem>
+    <comps>
+      <li Class="HediffCompProperties_Immunizable">
+        <severityPerDayNotImmune>0.25</severityPerDayNotImmune>
+      </li>
+      <li Class="HediffCompProperties_TendDuration">
+        <baseTendDurationHours>72</baseTendDurationHours>
+        <tendAllAtOnce>true</tendAllAtOnce>
+        <severityPerDayTended>-0.05</severityPerDayTended>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>minor</label>
+        <hungerRateFactor>1.1</hungerRateFactor>
+        <capMods>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>major</label>
+        <minSeverity>0.3</minSeverity>
+        <hungerRateFactor>1.2</hungerRateFactor>
+        <capMods>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>extreme</label>
+        <minSeverity>0.45</minSeverity>
+        <hungerRateFactor>1.3</hungerRateFactor>
+        <capMods>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>-0.3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="DiseaseBase">
+    <defName>SleepingDisorder</defName>
+    <label>sleeping disorder</label>
+    <initialSeverity>0.001</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1.0</maxSeverity>
+    <tendable>true</tendable>
+    <cureAllAtOnceIfCuredByItem>true</cureAllAtOnceIfCuredByItem>
+    <comps>
+      <li Class="HediffCompProperties_Immunizable">
+        <severityPerDayNotImmune>0.25</severityPerDayNotImmune>
+      </li>
+      <li Class="HediffCompProperties_TendDuration">
+        <baseTendDurationHours>72</baseTendDurationHours>
+        <tendAllAtOnce>true</tendAllAtOnce>
+        <severityPerDayTended>-0.05</severityPerDayTended>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>minor</label>
+        <restFallFactor>1.2</restFallFactor>
+      </li>
+      <li>
+        <label>major</label>
+        <minSeverity>0.3</minSeverity>
+        <restFallFactor>1.4</restFallFactor>
+      </li>
+      <li>
+        <label>extreme</label>
+        <minSeverity>0.45</minSeverity>
+        <restFallFactor>1.6</restFallFactor>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="DiseaseBase">
+    <defName>BurnOut</defName>
+    <label>burnout</label>
+    <initialSeverity>1.0</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>2.0</maxSeverity>
+    <tendable>true</tendable>
+    <cureAllAtOnceIfCuredByItem>true</cureAllAtOnceIfCuredByItem>
+    <comps>
+      <li Class="HediffCompProperties_Immunizable">
+        <severityPerDayNotImmune>0.25</severityPerDayNotImmune>
+      </li>
+      <li Class="HediffCompProperties_TendDuration">
+        <baseTendDurationHours>48</baseTendDurationHours>
+        <tendAllAtOnce>true</tendAllAtOnce>
+        <severityPerDayTended>-0.05</severityPerDayTended>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>under control</label>
+        <restFallFactor>1.2</restFallFactor>
+        <capMods>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>-0.25</offset>
+          </li>
+          <li>
+            <capacity>Hearing</capacity>
+            <offset>-0.25</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>-0.25</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>acute</label>
+        <minSeverity>0.5</minSeverity>
+        <restFallFactor>1.4</restFallFactor>
+        <capMods>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>-0.5</offset>
+          </li>
+          <li>
+            <capacity>Hearing</capacity>
+            <offset>-0.5</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>-0.5</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>given up</label>
+        <minSeverity>1.5</minSeverity>
+        <restFallFactor>1.6</restFallFactor>
+        <capMods>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>-0.75</offset>
+          </li>
+          <li>
+            <capacity>Hearing</capacity>
+            <offset>-0.75</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>-0.75</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="DiseaseBase">
+    <defName>ChronicStress</defName>
+    <label>chronic stress</label>
+    <initialSeverity>0.8</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>2.0</maxSeverity>
+    <tendable>true</tendable>
+    <cureAllAtOnceIfCuredByItem>true</cureAllAtOnceIfCuredByItem>
+    <comps>
+      <li Class="HediffCompProperties_Immunizable">
+        <severityPerDayNotImmune>0.8</severityPerDayNotImmune>
+      </li>
+      <li Class="HediffCompProperties_TendDuration">
+        <baseTendDurationHours>48</baseTendDurationHours>
+        <tendAllAtOnce>true</tendAllAtOnce>
+        <severityPerDayTended>-0.05</severityPerDayTended>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>under control</label>
+        <restFallFactor>1.1</restFallFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>acute</label>
+        <minSeverity>0.5</minSeverity>
+        <restFallFactor>1.2</restFallFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.3</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>given up</label>
+        <minSeverity>1.5</minSeverity>
+        <restFallFactor>1.3</restFallFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>CureBurnOut</defName>
+    <label>cure burnout</label>
+    <description>Cure a burnout.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <jobString>Curing burnout.</jobString>
+    <workAmount>4500</workAmount>
+    <removesHediff>BurnOut</removesHediff>
+    <successfullyRemovedHediffMessage>{0} has successfully cured {1}'s burnout.</successfullyRemovedHediffMessage>
+    <deathOnFailedSurgeryChance>0.1</deathOnFailedSurgeryChance>
+    <skillRequirements>
+      <Medicine>10</Medicine>
+    </skillRequirements>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>6</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Prozac</li>
+          </thingDefs>
+        </filter>
+        <count>20</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Ambien</li>
+          </thingDefs>
+        </filter>
+        <count>20</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>CureChronicStress</defName>
+    <label>cure chronic stress</label>
+    <description>Cure chronic stress.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <jobString>Curing chronic stress.</jobString>
+    <workAmount>4500</workAmount>
+    <removesHediff>ChronicStress</removesHediff>
+    <successfullyRemovedHediffMessage>{0} has successfully cured {1}'s chronic stress.</successfullyRemovedHediffMessage>
+    <deathOnFailedSurgeryChance>0.05</deathOnFailedSurgeryChance>
+    <skillRequirements>
+      <Medicine>8</Medicine>
+    </skillRequirements>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Prozac</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Ambien</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>CureEatingDisorder</defName>
+    <label>cure eating disorder</label>
+    <description>Cure eating disorder.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <jobString>Curing eating disorder.</jobString>
+    <workAmount>4500</workAmount>
+    <removesHediff>EatingDisorder</removesHediff>
+    <successfullyRemovedHediffMessage>{0} has successfully cured {1}'s eating disorder.</successfullyRemovedHediffMessage>
+    <deathOnFailedSurgeryChance>0.05</deathOnFailedSurgeryChance>
+    <skillRequirements>
+      <Medicine>6</Medicine>
+    </skillRequirements>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Prozac</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>CureSleepingDisorder</defName>
+    <label>cure sleeping disorder</label>
+    <description>Cure sleeping disorder.</description>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <jobString>Curing sleeping disorder.</jobString>
+    <workAmount>4500</workAmount>
+    <removesHediff>SleepingDisorder</removesHediff>
+    <successfullyRemovedHediffMessage>{0} has successfully cured {1}'s sleeping disorder.</successfullyRemovedHediffMessage>
+    <deathOnFailedSurgeryChance>0.05</deathOnFailedSurgeryChance>
+    <skillRequirements>
+      <Medicine>6</Medicine>
+    </skillRequirements>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Ambien</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+</Defs>
